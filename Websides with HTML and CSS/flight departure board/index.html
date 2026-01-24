@@ -1,0 +1,93 @@
+2<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Departure Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Flight Departure Board</h1>
+            <p class="subtitle">John F. Kennedy International Airport (JFK)</p>
+        </header>
+
+        <div class="board">
+            <table class="departure-table">
+                <thead>
+                    <tr>
+                        <th>Flight No.</th>
+                        <th>Destination</th>
+                        <th>Departure</th>
+                        <th>Gate</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Flight No.">AA101</td>
+                        <td data-label="Destination">Los Angeles (LAX)</td>
+                        <td data-label="Departure">14:30</td>
+                        <td data-label="Gate">B12</td>
+                        <td data-label="Status"><span class="status on-time">On Time</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">BA245</td>
+                        <td data-label="Destination">London (LHR)</td>
+                        <td data-label="Departure">15:00</td>
+                        <td data-label="Gate">A5</td>
+                        <td data-label="Status"><span class="status boarding">Boarding</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">DL567</td>
+                        <td data-label="Destination">Miami (MIA)</td>
+                        <td data-label="Departure">14:45</td>
+                        <td data-label="Gate">C8</td>
+                        <td data-label="Status"><span class="status delayed">Delayed</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">UA289</td>
+                        <td data-label="Destination">San Francisco (SFO)</td>
+                        <td data-label="Departure">15:15</td>
+                        <td data-label="Gate">D3</td>
+                        <td data-label="Status"><span class="status on-time">On Time</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">JL456</td>
+                        <td data-label="Destination">Tokyo (NRT)</td>
+                        <td data-label="Departure">16:00</td>
+                        <td data-label="Gate">A15</td>
+                        <td data-label="Status"><span class="status on-time">On Time</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">AF678</td>
+                        <td data-label="Destination">Paris (CDG)</td>
+                        <td data-label="Departure">15:30</td>
+                        <td data-label="Gate">B8</td>
+                        <td data-label="Status"><span class="status boarding">Boarding</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">LH890</td>
+                        <td data-label="Destination">Frankfurt (FRA)</td>
+                        <td data-label="Departure">16:20</td>
+                        <td data-label="Gate">C12</td>
+                        <td data-label="Status"><span class="status on-time">On Time</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Flight No.">IB234</td>
+                        <td data-label="Destination">Madrid (MAD)</td>
+                        <td data-label="Departure">14:50</td>
+                        <td data-label="Gate">B2</td>
+                        <td data-label="Status"><span class="status cancelled">Cancelled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Airport Information System</p>
+        </footer>
+    </div>
+</body>
+</html>

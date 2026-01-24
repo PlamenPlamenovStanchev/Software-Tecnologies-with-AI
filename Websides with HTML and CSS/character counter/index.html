@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message - Character Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="message-form">
+            <h1>Send Message</h1>
+            <form id="messageForm">
+                <div class="form-group">
+                    <label for="messageInput">Your Message:</label>
+                    <textarea 
+                        id="messageInput" 
+                        class="message-textarea" 
+                        placeholder="Type your message here..." 
+                        maxlength="200">
+                    </textarea>
+                    <div class="counter-info">
+                        <span class="chars-count">
+                            <span id="charsUsed">0</span> / 200
+                        </span>
+                        <span class="chars-left">
+                            <span id="charsLeft">200</span> characters left
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="send-btn" id="sendBtn" disabled>Send Message</button>
+            </form>
+            <div id="successMessage" class="success-message" style="display: none;">
+                ✓ Message sent successfully!
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.subtitle {
+    color: #888;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.result {
+    margin-top: 30px;
+    animation: slideIn 0.4s ease;
+}
+
+.result.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.result-category {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+.result-info {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.result-category.underweight {
+    background-color: #3498db;
+}
+
+.result-category.normal {
+    background-color: #27ae60;
+}
+
+.result-category.overweight {
+    background-color: #f39c12;
+}
+
+.result-category.obese {
+    background-color: #e74c3c;
+}
+
+.guide {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+}
+
+.guide h2 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.category-item {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.category-item .range {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.category-item .label {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.category-item.underweight {
+    background-color: #3498db;
+}
+
+.category-item.normal {
+    background-color: #27ae60;
+}
+
+.category-item.overweight {
+    background-color: #f39c12;
+}
+
+.category-item.obese {
+    background-color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+
+    .guide h2 {
+        font-size: 1.1rem;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .result-box {
+        padding: 20px;
+    }
+
+    .result-value {
+        font-size: 1.8rem;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Comparison - MacBook Pro vs HP EliteBook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 2.2em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        th {
+            padding: 20px 16px;
+            text-align: left;
+            font-weight: 700;
+            color: white;
+            font-size: 1.05em;
+            letter-spacing: 0.3px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        td {
+            padding: 16px 16px;
+            border-bottom: 1px solid #e8e8e8;
+            color: #444;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scaleX(1.01);
+            box-shadow: inset 0 0 10px rgba(102, 126, 234, 0.1);
+        }
+
+        .spec-name {
+            font-weight: 700;
+            color: #333;
+            width: 25%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #fafbfc;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f5f7fb;
+        }
+
+        .macbook {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .hp {
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        /* Add icons or visual separators */
+        th:nth-child(2)::before {
+            content: "🍎 ";
+            margin-right: 8px;
+        }
+
+        th:nth-child(3)::before {
+            content: "💻 ";
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+                padding: 30px 20px;
+            }
+
+            table {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody, tr, td {
+                display: block;
+                width: 100%;
+            }
+
+            tr {
+                border-bottom: 2px solid #e8e8e8;
+                margin-bottom: 12px;
+                background-color: #f5f7fb !important;
+                border-radius: 8px;
+                padding: 12px;
+            }
+
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border-bottom: none;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            td:first-child {
+                padding-left: 16px;
+                text-align: left;
+                font-weight: 700;
+                color: #667eea;
+            }
+
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 16px;
+                font-weight: 600;
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Comparison</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Specification</th>
+                    <th class="macbook">MacBook Pro</th>
+                    <th class="hp">HP EliteBook</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="spec-name">Processor</td>
+                    <td class="macbook">Apple M3/M3 Pro/M3 Max</td>
+                    <td class="hp">Intel Core i5/i7/i9 (13th Gen)</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">RAM</td>
+                    <td class="macbook">8GB - 36GB</td>
+                    <td class="hp">8GB - 32GB</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Storage</td>
+                    <td class="macbook">512GB - 8TB SSD</td>
+                    <td class="hp">256GB - 2TB SSD</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Display</td>
+                    <td class="macbook">13.3" or 16" Liquid Retina</td>
+                    <td class="hp">13.3" or 15.6" IPS FHD/WUXGA</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Resolution</td>
+                    <td class="macbook">2560x1664 or 3456x2234</td>
+                    <td class="hp">1920x1200 or 1920x1440</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Graphics</td>
+                    <td class="macbook">Integrated Apple GPU</td>
+                    <td class="hp">Integrated Intel Iris Xe</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Battery Life</td>
+                    <td class="macbook">15-20 hours</td>
+                    <td class="hp">10-15 hours</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Weight</td>
+                    <td class="macbook">1.5kg - 2.1kg</td>
+                    <td class="hp">1.3kg - 1.8kg</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Operating System</td>
+                    <td class="macbook">macOS Sonoma</td>
+                    <td class="hp">Windows 11 Pro</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Ports</td>
+                    <td class="macbook">Thunderbolt 4, HDMI, SD Card</td>
+                    <td class="hp">USB-C, USB-A, HDMI, RJ45</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Audio</td>
+                    <td class="macbook">6-speaker system</td>
+                    <td class="hp">Bang & Olufsen speakers</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Starting Price</td>
+                    <td class="macbook">$1,299 - $3,499</td>
+                    <td class="hp">$799 - $2,199</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Build Quality</td>
+                    <td class="macbook">Aluminum unibody</td>
+                    <td class="hp">Magnesium alloy chassis</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Security Features</td>
+                    <td class="macbook">Touch ID</td>
+                    <td class="hp">Fingerprint, TPM 2.0</td>
+                </tr>
+                <tr>
+                    <td class="spec-name">Warranty</td>
+                    <td class="macbook">1 year (AppleCare+ optional)</td>
+                    <td class="hp">1 year (Extended available)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

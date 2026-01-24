@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual Conference - Event Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .radio-option label,
+        .checkbox-option label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            color: #555;
+        }
+
+        input[type="radio"]:focus + label,
+        input[type="checkbox"]:focus + label {
+            color: #667eea;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .radio-group,
+            .checkbox-group {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Annual Conference</h1>
+        <p class="subtitle">📝 2026 Event Registration Form</p>
+
+        <form id="registrationForm">
+            <!-- Personal Information Section -->
+            <div class="section-title">👤 Personal Information</div>
+
+            <div class="form-group">
+                <label for="fullName">👨‍💼 Full Name *</label>
+                <input 
+                    type="text" 
+                    id="fullName" 
+                    name="fullName" 
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">📧 Email Address *</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email address"
+                    required
+                >
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Attendance Section -->
+            <div class="section-title">🎫 Attendance Type</div>
+
+            <div class="form-group">
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input 
+                            type="radio" 
+                            id="inPerson" 
+                            name="attendance" 
+                            value="in-person"
+                            required
+                        >
+                        <label for="inPerson">🏢 In-person</label>
+                    </div>
+                    <div class="radio-option">
+                        <input 
+                            type="radio" 
+                            id="virtual" 
+                            name="attendance" 
+                            value="virtual"
+                        >
+                        <label for="virtual">💻 Virtual</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Workshops Section -->
+            <div class="section-title">🛠️ Select Workshops</div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <div class="checkbox-option">
+                        <input 
+                            type="checkbox" 
+                            id="htmlBasics" 
+                            name="workshops" 
+                            value="html-basics"
+                        >
+                        <label for="htmlBasics">📚 HTML Basics</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input 
+                            type="checkbox" 
+                            id="cssLayouts" 
+                            name="workshops" 
+                            value="css-layouts"
+                        >
+                        <label for="cssLayouts">🎨 CSS Layouts</label>
+                    </div>
+                    <div class="checkbox-option">
+                        <input 
+                            type="checkbox" 
+                            id="jsIntro" 
+                            name="workshops" 
+                            value="js-intro"
+                        >
+                        <label for="jsIntro">⚡ JS Intro</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Meal Preference Section -->
+            <div class="section-title">🍽️ Meal Preference</div>
+
+            <div class="form-group">
+                <label for="mealPreference">🥘 Choose your meal preference *</label>
+                <select id="mealPreference" name="mealPreference" required>
+                    <option value="">-- Select an option --</option>
+                    <option value="standard">🍖 Standard</option>
+                    <option value="vegetarian">🥗 Vegetarian</option>
+                    <option value="vegan">🌱 Vegan</option>
+                    <option value="gluten-free">🌾 Gluten-Free</option>
+                </select>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">✅ Register Now</button>
+        </form>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                attendance: document.querySelector('input[name="attendance"]:checked').value,
+                workshops: Array.from(document.querySelectorAll('input[name="workshops"]:checked')).map(cb => cb.value),
+                mealPreference: document.getElementById('mealPreference').value
+            };
+
+            // Display success message
+            alert(
+                `Registration Successful!\n\n` +
+                `Name: ${formData.fullName}\n` +
+                `Email: ${formData.email}\n` +
+                `Attendance: ${formData.attendance}\n` +
+                `Workshops: ${formData.workshops.length > 0 ? formData.workshops.join(', ') : 'None selected'}\n` +
+                `Meal Preference: ${formData.mealPreference}`
+            );
+
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

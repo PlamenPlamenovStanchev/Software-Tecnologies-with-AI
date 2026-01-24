@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Feedback Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Hotel Feedback Form</h1>
+            <p class="subtitle">We value your feedback to improve our services</p>
+            
+            <form action="#" method="POST" class="feedback-form">
+                <!-- Required Information Section -->
+                <fieldset>
+                    <legend>Your Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Enter your full name" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter your email address" 
+                            required
+                        >
+                    </div>
+                </fieldset>
+
+                <!-- Optional Information Section -->
+                <fieldset>
+                    <legend>Stay Details (Optional)</legend>
+                    
+                    <div class="form-group">
+                        <label for="location">Hotel Location</label>
+                        <select id="location" name="location">
+                            <option value="">-- Select a location --</option>
+                            <option value="downtown">Downtown</option>
+                            <option value="beachfront">Beachfront</option>
+                            <option value="airport">Near Airport</option>
+                            <option value="mountain">Mountain View</option>
+                            <option value="city-center">City Center</option>
+                            <option value="countryside">Countryside</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date of Stay</label>
+                        <input 
+                            type="date" 
+                            id="date" 
+                            name="date"
+                        >
+                    </div>
+                </fieldset>
+
+                <!-- Rating Section -->
+                <fieldset>
+                    <legend>Rate Your Experience</legend>
+                    <p class="rating-info">Please rate on a scale of 1 to 10 (1 = Poor, 10 = Excellent)</p>
+                    
+                    <div class="form-group">
+                        <label for="interior">Interior Design & Ambiance <span class="required">*</span></label>
+                        <div class="rating-input">
+                            <input 
+                                type="number" 
+                                id="interior" 
+                                name="interior" 
+                                min="1" 
+                                max="10" 
+                                placeholder="1-10" 
+                                required
+                            >
+                            <span class="rating-label">/10</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cleanliness">Cleanliness <span class="required">*</span></label>
+                        <div class="rating-input">
+                            <input 
+                                type="number" 
+                                id="cleanliness" 
+                                name="cleanliness" 
+                                min="1" 
+                                max="10" 
+                                placeholder="1-10" 
+                                required
+                            >
+                            <span class="rating-label">/10</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Quality <span class="required">*</span></label>
+                        <div class="rating-input">
+                            <input 
+                                type="number" 
+                                id="service" 
+                                name="service" 
+                                min="1" 
+                                max="10" 
+                                placeholder="1-10" 
+                                required
+                            >
+                            <span class="rating-label">/10</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facilities">Facilities & Amenities <span class="required">*</span></label>
+                        <div class="rating-input">
+                            <input 
+                                type="number" 
+                                id="facilities" 
+                                name="facilities" 
+                                min="1" 
+                                max="10" 
+                                placeholder="1-10" 
+                                required
+                            >
+                            <span class="rating-label">/10</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Comments Section -->
+                <fieldset>
+                    <legend>Additional Comments</legend>
+                    
+                    <div class="form-group">
+                        <label for="comments">Comments <span class="required">*</span></label>
+                        <textarea 
+                            id="comments" 
+                            name="comments" 
+                            rows="5" 
+                            placeholder="Please share any additional feedback, suggestions, or experiences from your stay..." 
+                            required
+                        ></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Submit Feedback</button>
+                    <button type="reset" class="btn-reset">Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

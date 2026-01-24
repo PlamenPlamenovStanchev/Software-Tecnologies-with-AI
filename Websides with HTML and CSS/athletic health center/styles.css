@@ -1,0 +1,798 @@
+/* ===================== Global Styles ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===================== Header & Navigation ===================== */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #4fc3f7;
+    border-bottom: 2px solid #4fc3f7;
+}
+
+/* ===================== Hero Section ===================== */
+.hero {
+    background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), 
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=500&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    margin-bottom: 3rem;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: #4fc3f7;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #29b6f6;
+    transform: translateY(-2px);
+}
+
+/* ===================== Services Section ===================== */
+.services {
+    padding: 4rem 0;
+    background-color: white;
+    margin-bottom: 2rem;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e3c72;
+    margin-bottom: 3rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.service-card h3 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ===================== Membership Section ===================== */
+.membership {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.membership h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e3c72;
+    margin-bottom: 3rem;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.membership-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.membership-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.membership-card.featured {
+    border-color: #4fc3f7;
+    box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+    transform: scale(1.05);
+}
+
+.membership-card h3 {
+    color: #1e3c72;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.membership-card .price {
+    font-size: 2.5rem;
+    color: #4fc3f7;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.membership-card .price span {
+    font-size: 1rem;
+    color: #666;
+}
+
+.membership-card ul {
+    list-style: none;
+    margin: 1.5rem 0;
+    text-align: left;
+    color: #555;
+}
+
+.membership-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.membership-card li:last-child {
+    border-bottom: none;
+}
+
+.membership-btn {
+    background-color: #1e3c72;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.membership-btn:hover {
+    background-color: #2a5298;
+}
+
+/* ===================== Facilities Section ===================== */
+.facilities {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.facilities h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e3c72;
+    margin-bottom: 3rem;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.facility-item {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.facility-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.facility-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.facility-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.facility-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ===================== Testimonials Section ===================== */
+.testimonials {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #4fc3f7;
+    backdrop-filter: blur(10px);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.testimonial-card strong {
+    color: #4fc3f7;
+}
+
+/* ===================== Main Content ===================== */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+h1 {
+    color: #1e3c72;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: #1e3c72;
+}
+
+h3 {
+    color: #2a5298;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* ===================== Footer ===================== */
+footer {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    color: #4fc3f7;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-section p {
+    color: #ccc;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #4fc3f7;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem;
+    text-align: center;
+    color: #aaa;
+}
+
+/* ===================== Responsive Design ===================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    .services-grid,
+    .membership-grid,
+    .facilities-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    main {
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        position: relative;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.75rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero {
+        padding: 60px 20px;
+        background-position: center top;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .services,
+    .membership,
+    .facilities,
+    .testimonials {
+        padding: 2.5rem 0;
+    }
+
+    .services h2,
+    .membership h2,
+    .facilities h2,
+    .testimonials h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .service-card,
+    .facility-item {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-card h3,
+    .facility-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .service-card p,
+    .facility-item p {
+        font-size: 0.95rem;
+    }
+
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .membership-card {
+        padding: 1.5rem;
+    }
+
+    .membership-card.featured {
+        transform: scale(1);
+    }
+
+    .membership-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .membership-card .price {
+        font-size: 2rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-card p {
+        font-size: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    header {
+        padding: 0.75rem 0;
+    }
+
+    header .container {
+        gap: 0.5rem;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    nav li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    nav li:last-child {
+        border-bottom: none;
+    }
+
+    nav a {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    .services,
+    .membership,
+    .facilities,
+    .testimonials {
+        padding: 2rem 0;
+    }
+
+    .services h2,
+    .membership h2,
+    .facilities h2,
+    .testimonials h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .services-grid,
+    .membership-grid,
+    .facilities-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .membership-card {
+        padding: 1.2rem;
+    }
+
+    .membership-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .membership-card .price {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .membership-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+    }
+
+    .membership-card ul {
+        font-size: 0.9rem;
+    }
+
+    .membership-card li {
+        padding: 0.4rem 0;
+    }
+
+    .facility-item {
+        padding: 1.2rem;
+    }
+
+    .facility-icon {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .facility-item h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .facility-item p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-card {
+        padding: 1.2rem;
+        border-left-width: 3px;
+    }
+
+    .testimonial-card p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+    }
+
+    footer {
+        padding: 2rem 0 0.8rem;
+    }
+
+    .footer-content {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-section {
+        padding-bottom: 1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .services h2,
+    .membership h2,
+    .facilities h2,
+    .testimonials h2 {
+        font-size: 1.3rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    .facility-icon {
+        font-size: 1.8rem;
+    }
+
+    .membership-card .price {
+        font-size: 1.6rem;
+    }
+}

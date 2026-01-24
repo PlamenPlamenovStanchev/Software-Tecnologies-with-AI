@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Layout - Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            border: 2px dotted rgb(96 139 168);
+        }
+
+        .container div {
+            width: 60px;
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid rgb(96 139 168);
+            border-radius: 5px;
+            background-color: rgb(96 139 168 / 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+    </div>
+</body>
+
+</html>
+
