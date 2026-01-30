@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars and Tires Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="cars.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="header-content">
+                <h1 class="header-title"><i class="bi bi-car-front-fill"></i> Cars and Tires Marketplace</h1>
+                <p class="header-subtitle">Your Premier Destination for Quality Vehicles and Tires</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-navbar sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-speedometer2"></i> Marketplace</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cars-section">Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tires-section">Tires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="home" class="main-content">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="breadcrumb-container">
+                <ol class="breadcrumb" id="breadcrumb-nav">
+                    <li class="breadcrumb-item"><a href="#home">Home</a></li>
+                </ol>
+            </nav>
+
+            <!-- Main Tabs -->
+            <div class="tabs-section">
+                <ul class="nav nav-tabs tab-navigation" id="mainTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="cars-tab" data-bs-toggle="tab" data-bs-target="#cars-content" type="button" role="tab" aria-selected="true">
+                            <i class="bi bi-car-front-fill"></i> Cars
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tires-tab" data-bs-toggle="tab" data-bs-target="#tires-content" type="button" role="tab" aria-selected="false">
+                            <i class="bi bi-record-circle"></i> Tires
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="mainTabsContent">
+                    <!-- Cars Tab -->
+                    <div class="tab-pane fade show active" id="cars-content" role="tabpanel">
+                        <section id="cars-section" class="section-container py-5">
+                            <!-- Hot Cars Carousel -->
+                            <div class="section-header">
+                                <h2><i class="bi bi-fire"></i> Hot Cars</h2>
+                                <p class="section-subtitle">Featured vehicles with special deals</p>
+                            </div>
+                            
+                            <div id="carsCarousel" class="carousel slide carousel-container mb-5" data-bs-ride="false">
+                                <div class="carousel-indicators" id="cars-carousel-indicators">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                                <div class="carousel-inner" id="hot-cars-carousel">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carsCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carsCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                            <!-- Search Form -->
+                            <div class="search-section">
+                                <div class="section-header">
+                                    <h2><i class="bi bi-search"></i> Find Your Perfect Car</h2>
+                                </div>
+                                <form id="car-search-form" class="search-form">
+                                    <div class="row g-3">
+                                        <div class="col-md-2">
+                                            <label for="car-brand" class="form-label">Brand</label>
+                                            <input type="text" class="form-control" id="car-brand" placeholder="e.g., BMW">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="car-model" class="form-label">Model</label>
+                                            <input type="text" class="form-control" id="car-model" placeholder="e.g., M3">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="car-year" class="form-label">Year</label>
+                                            <input type="number" class="form-control" id="car-year" placeholder="2023">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="car-max-price" class="form-label">Max Price ($)</label>
+                                            <input type="number" class="form-control" id="car-max-price" placeholder="50000">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="car-kilometers" class="form-label">Max KM</label>
+                                            <input type="number" class="form-control" id="car-kilometers" placeholder="150000">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label>&nbsp;</label>
+                                            <button type="submit" class="btn btn-search w-100">
+                                                <i class="bi bi-search"></i> Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Search Results -->
+                            <div class="results-section">
+                                <div class="section-header">
+                                    <h2><i class="bi bi-list"></i> Search Results</h2>
+                                </div>
+                                <div id="car-search-results" class="results-grid">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+
+                                <!-- Pagination -->
+                                <nav aria-label="Cars pagination" class="pagination-container" id="car-pagination-nav">
+                                    <ul class="pagination justify-content-center" id="car-pagination">
+                                        <!-- Populated by JavaScript -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Tires Tab -->
+                    <div class="tab-pane fade" id="tires-content" role="tabpanel">
+                        <section id="tires-section" class="section-container py-5">
+                            <!-- Hot Tires Carousel -->
+                            <div class="section-header">
+                                <h2><i class="bi bi-fire"></i> Hot Tires</h2>
+                                <p class="section-subtitle">Premium tire collections</p>
+                            </div>
+
+                            <div id="tiresCarousel" class="carousel slide carousel-container mb-5" data-bs-ride="false">
+                                <div class="carousel-indicators" id="tires-carousel-indicators">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                                <div class="carousel-inner" id="hot-tires-carousel">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#tiresCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#tiresCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                            <!-- Search Form -->
+                            <div class="search-section">
+                                <div class="section-header">
+                                    <h2><i class="bi bi-search"></i> Find Your Tires</h2>
+                                </div>
+                                <form id="tire-search-form" class="search-form">
+                                    <div class="row g-3">
+                                        <div class="col-md-3">
+                                            <label for="tire-brand" class="form-label">Brand</label>
+                                            <input type="text" class="form-control" id="tire-brand" placeholder="e.g., Michelin">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="tire-width" class="form-label">Width (mm)</label>
+                                            <input type="number" class="form-control" id="tire-width" placeholder="205">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="tire-height" class="form-label">Height (%)</label>
+                                            <input type="number" class="form-control" id="tire-height" placeholder="55">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="tire-wheel" class="form-label">Wheel (in)</label>
+                                            <input type="number" class="form-control" id="tire-wheel" placeholder="16">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label>&nbsp;</label>
+                                            <button type="submit" class="btn btn-search w-100">
+                                                <i class="bi bi-search"></i> Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Search Results -->
+                            <div class="results-section">
+                                <div class="section-header">
+                                    <h2><i class="bi bi-list"></i> Search Results</h2>
+                                </div>
+                                <div id="tire-search-results" class="results-grid">
+                                    <!-- Populated by JavaScript -->
+                                </div>
+
+                                <!-- Pagination -->
+                                <nav aria-label="Tires pagination" class="pagination-container" id="tire-pagination-nav">
+                                    <ul class="pagination justify-content-center" id="tire-pagination">
+                                        <!-- Populated by JavaScript -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="about-section py-5">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2><i class="bi bi-info-circle-fill"></i> About Us</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p class="lead text-center mb-4">
+                            Welcome to Cars and Tires Marketplace, your trusted partner for finding quality vehicles and premium tires.
+                        </p>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="bi bi-award-fill"></i>
+                                    <h5>Quality Assurance</h5>
+                                    <p>Every car and tire is carefully verified for quality and authenticity.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="bi bi-shield-lock-fill"></i>
+                                    <h5>Secure Transactions</h5>
+                                    <p>Your safety and privacy are our top priority with encrypted transactions.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="bi bi-headset"></i>
+                                    <h5>24/7 Support</h5>
+                                    <p>Our dedicated team is always ready to assist you anytime, anywhere.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-card">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                    <h5>Nationwide Delivery</h5>
+                                    <p>Fast and reliable delivery service across the country.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts" class="contacts-section py-5">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2><i class="bi bi-envelope-fill"></i> Contact Us</h2>
+                    <p class="section-subtitle">Get in touch with our team</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mx-auto">
+                        <form class="contact-form" id="contact-form">
+                            <div class="mb-3">
+                                <label for="contact-name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="contact-name" required>
+                                <i class="bi bi-person-fill input-icon"></i>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="contact-email" required>
+                                <i class="bi bi-envelope-fill input-icon"></i>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact-message" class="form-label">Message</label>
+                                <textarea class="form-control" id="contact-message" rows="5" required></textarea>
+                                <i class="bi bi-chat-fill input-icon-textarea"></i>
+                            </div>
+                            <button type="submit" class="btn btn-submit w-100">
+                                <i class="bi bi-send-fill"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 footer-column">
+                    <h5><i class="bi bi-info-circle"></i> About</h5>
+                    <p>Your trusted marketplace for quality cars and tires with best prices and service.</p>
+                </div>
+                <div class="col-md-4 footer-column">
+                    <h5><i class="bi bi-telephone"></i> Contact</h5>
+                    <p>Email: info@marketplace.com<br>Phone: 1-800-CARS-TIRES<br>Hours: 24/7 Support</p>
+                </div>
+                <div class="col-md-4 footer-column">
+                    <h5><i class="bi bi-share"></i> Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cars and Tires Marketplace. All Rights Reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cars.js"></script>
+</body>
+</html>

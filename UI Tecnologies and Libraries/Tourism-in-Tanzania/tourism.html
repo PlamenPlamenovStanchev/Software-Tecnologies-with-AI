@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism in Tanzania - The Land of Kilimanjaro & Serengeti</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🦒%3C/text%3E%3C/svg%3E">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1eb2a6;
+            --secondary-color: #f7aa00;
+            --accent-color: #e74c3c;
+            --dark-color: #1a1a2e;
+            --light-color: #f5f5f5;
+            --gradient-primary: linear-gradient(135deg, #1eb2a6 0%, #0d7377 100%);
+            --gradient-secondary: linear-gradient(135deg, #f7aa00 0%, #e74c3c 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 5px;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+        }
+
+        .preloader-icon {
+            font-size: 80px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .preloader-text {
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            margin-top: 20px;
+            letter-spacing: 3px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: transparent !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: rgba(26, 26, 46, 0.95) !important;
+            padding: 10px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: white !important;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: var(--secondary-color) !important;
+        }
+
+        .navbar-brand .brand-icon {
+            font-size: 32px;
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            padding: 10px 0 !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 10px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+            position: relative;
+            width: 30px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: white;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon::before {
+            top: -8px;
+        }
+
+        .navbar-toggler-icon::after {
+            top: 8px;
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('images/download (1).jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 178, 166, 0.3) 0%, rgba(247, 170, 0, 0.2) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(40px, 8vw, 90px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-title span {
+            color: var(--secondary-color);
+            font-family: 'Dancing Script', cursive;
+            display: block;
+            font-size: clamp(30px, 5vw, 60px);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .btn-explore {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-explore::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-explore:hover::before {
+            left: 100%;
+        }
+
+        .btn-explore:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 178, 166, 0.4);
+            color: white;
+        }
+
+        .btn-discover {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid white;
+            transition: all 0.4s ease;
+        }
+
+        .btn-discover:hover {
+            background: white;
+            color: var(--dark-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator a {
+            color: white;
+            font-size: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator a:hover {
+            color: var(--secondary-color);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(32px, 5vw, 50px);
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Places Section */
+        #places {
+            background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .place-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+
+        .place-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .place-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .place-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .place-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .place-card:hover .place-image img {
+            transform: scale(1.15);
+        }
+
+        .place-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .place-card:hover .place-overlay {
+            opacity: 1;
+        }
+
+        .place-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .place-content {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .place-title {
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .place-card:hover .place-title {
+            color: var(--primary-color);
+        }
+
+        .place-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .place-features {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .place-feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        .place-feature i {
+            color: var(--primary-color);
+        }
+
+        .place-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .place-link:hover {
+            gap: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient-dark);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/download (2).jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-icon {
+            font-size: 50px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 50px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* History Section */
+        #history {
+            background: white;
+            position: relative;
+        }
+
+        .history-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 80%, rgba(30, 178, 166, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(247, 170, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            right: -10px;
+            top: 20px;
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(30, 178, 166, 0.5);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            left: -10px;
+            right: auto;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 450px;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(30, 178, 166, 0.9) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: white;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: var(--gradient-dark);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/licensed-image.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(30px, 5vw, 50px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        /* Lottie Animation Container */
+        .lottie-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(30, 178, 166, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: white;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 0;
+                justify-content: flex-start;
+                margin-left: 0;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(odd) .timeline-dot {
+                left: 10px;
+                right: auto;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-explore,
+            .btn-discover {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .stat-item {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Micro-interactions */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hover-glow {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(30, 178, 166, 0.3);
+        }
+
+        /* Text animations */
+        .text-gradient {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Loading animation for images */
+        .img-loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+            opacity: 0;
+        }
+
+        .ripple:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+            transition: 0s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-icon">🦒</div>
+            <div class="preloader-text">Discovering Tanzania...</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="brand-icon">🌍</span>
+                Tanzania
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#places">Places to Visit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#history">History</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-aos="fade-down">
+                <i class="fas fa-compass me-2"></i> Welcome to East Africa
+            </div>
+            <h1 class="hero-title">
+                Discover
+                <span>Tanzania</span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience the breathtaking beauty of Africa's wildlife paradise. From the majestic Serengeti 
+                to the stunning peaks of Kilimanjaro, Tanzania awaits your adventure.
+            </p>
+            <div class="hero-buttons">
+                <a href="#places" class="btn btn-explore ripple">
+                    <i class="fas fa-map-marked-alt me-2"></i> Explore Destinations
+                </a>
+                <a href="#history" class="btn btn-discover">
+                    <i class="fas fa-book-open me-2"></i> Learn History
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#places">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Places to Visit Section -->
+    <section id="places">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i class="fas fa-map-marker-alt me-2"></i> Must Visit
+                </span>
+                <h2 class="section-title">Places to <span>Explore</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Discover Tanzania's most spectacular destinations, from wildlife sanctuaries 
+                    to pristine beaches and ancient ruins.
+                </p>
+            </div>
+
+            <div class="row">
+                <!-- Serengeti -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/download (2).jpg" alt="Serengeti National Park">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-star me-1"></i> Popular</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Serengeti National Park</h3>
+                            <p class="place-description">
+                                Witness the world-famous Great Migration, where millions of wildebeest and zebras 
+                                traverse the endless plains in search of fresh grazing.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-paw"></i> Wildlife Safari</span>
+                                <span class="place-feature"><i class="fas fa-camera"></i> Photography</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mount Kilimanjaro -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/download (3).jpg" alt="Mount Kilimanjaro">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-mountain me-1"></i> Iconic</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Mount Kilimanjaro</h3>
+                            <p class="place-description">
+                                Africa's highest peak and the world's tallest free-standing mountain. 
+                                Challenge yourself to climb this majestic snow-capped summit.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-hiking"></i> Trekking</span>
+                                <span class="place-feature"><i class="fas fa-snowflake"></i> Glaciers</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zanzibar -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/download (4).jpg" alt="Zanzibar Island">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-umbrella-beach me-1"></i> Paradise</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Zanzibar Island</h3>
+                            <p class="place-description">
+                                The exotic spice island with pristine white beaches, turquoise waters, 
+                                and the historic Stone Town UNESCO World Heritage Site.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-swimmer"></i> Beach</span>
+                                <span class="place-feature"><i class="fas fa-landmark"></i> Culture</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ngorongoro Crater -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/licensed-image (1).jpg" alt="Ngorongoro Crater">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-globe me-1"></i> UNESCO</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Ngorongoro Crater</h3>
+                            <p class="place-description">
+                                The world's largest inactive volcanic caldera, home to over 25,000 large animals 
+                                including the endangered black rhino.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-binoculars"></i> Game Drives</span>
+                                <span class="place-feature"><i class="fas fa-leaf"></i> Ecosystem</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lake Manyara -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/licensed-image.jpg" alt="Lake Manyara">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-dove me-1"></i> Birdlife</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Lake Manyara</h3>
+                            <p class="place-description">
+                                A stunning alkaline lake famous for its tree-climbing lions, 
+                                flamingo colonies, and diverse bird species.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-feather"></i> Flamingos</span>
+                                <span class="place-feature"><i class="fas fa-tree"></i> Forest</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarangire -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="place-card">
+                        <div class="place-image">
+                            <img src="images/unnamed.jpg" alt="Tarangire National Park">
+                            <div class="place-overlay"></div>
+                            <span class="place-badge"><i class="fas fa-elephant me-1"></i> Elephants</span>
+                        </div>
+                        <div class="place-content">
+                            <h3 class="place-title">Tarangire National Park</h3>
+                            <p class="place-description">
+                                Known for its large elephant herds, iconic baobab trees, and the 
+                                Tarangire River that attracts wildlife year-round.
+                            </p>
+                            <div class="place-features">
+                                <span class="place-feature"><i class="fas fa-water"></i> River Safari</span>
+                                <span class="place-feature"><i class="fas fa-tree"></i> Baobabs</span>
+                            </div>
+                            <a href="#" class="place-link">
+                                Discover More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="stat-number" data-count="22">22</div>
+                        <div class="stat-label">National Parks</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <div class="stat-number" data-count="430">430+</div>
+                        <div class="stat-label">Wildlife Species</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="stat-number" data-count="7">7</div>
+                        <div class="stat-label">UNESCO Sites</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="stat-number" data-count="800">800+</div>
+                        <div class="stat-label">KM of Coastline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Section -->
+    <section id="history">
+        <div class="history-bg-pattern"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i class="fas fa-hourglass-half me-2"></i> Rich Heritage
+                </span>
+                <h2 class="section-title">Tanzania's <span>History</span></h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Journey through time and discover the fascinating history of this East African nation, 
+                    from ancient civilizations to modern independence.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">1.8 Million Years Ago</span>
+                        <h3 class="timeline-title">Cradle of Mankind</h3>
+                        <p class="timeline-text">
+                            Olduvai Gorge reveals some of the earliest evidence of human ancestors. 
+                            The Leakey family discovered fossils of early hominids, establishing 
+                            Tanzania as a crucial site for understanding human evolution.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">8th Century</span>
+                        <h3 class="timeline-title">Arab & Persian Trade</h3>
+                        <p class="timeline-text">
+                            Arab and Persian traders established settlements along the coast, 
+                            introducing Islam and creating the Swahili culture that blended 
+                            African and Arab influences, with Zanzibar becoming a major trading hub.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">1498</span>
+                        <h3 class="timeline-title">Portuguese Arrival</h3>
+                        <p class="timeline-text">
+                            Vasco da Gama reached the East African coast, marking the beginning 
+                            of European influence. The Portuguese controlled the coastal regions 
+                            for over two centuries before being expelled by Omani Arabs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">1885</span>
+                        <h3 class="timeline-title">German East Africa</h3>
+                        <p class="timeline-text">
+                            Germany established German East Africa, incorporating mainland Tanzania. 
+                            They built infrastructure including railways and introduced cash crop 
+                            farming, though often through forced labor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">1961</span>
+                        <h3 class="timeline-title">Independence</h3>
+                        <p class="timeline-text">
+                            Tanganyika gained independence from Britain on December 9, 1961, 
+                            with Julius Nyerere becoming the first Prime Minister. This peaceful 
+                            transition marked a new chapter in the nation's history.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">1964</span>
+                        <h3 class="timeline-title">Birth of Tanzania</h3>
+                        <p class="timeline-text">
+                            The United Republic of Tanzania was formed through the union of 
+                            Tanganyika and Zanzibar on April 26, 1964. Julius Nyerere became 
+                            the first President of the newly unified nation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i class="fas fa-images me-2"></i> Visual Journey
+                </span>
+                <h2 class="section-title">Capture the <span>Beauty</span></h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="images/unnamed (1).jpg" alt="Tanzania Wildlife">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">
+                            <i class="fas fa-expand me-2"></i> African Wildlife
+                        </span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/download (1).jpg" alt="Tanzania Landscape">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">
+                            <i class="fas fa-expand me-2"></i> Stunning Landscapes
+                        </span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/download (2).jpg" alt="Serengeti">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">
+                            <i class="fas fa-expand me-2"></i> Serengeti Plains
+                        </span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/download (3).jpg" alt="Kilimanjaro">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">
+                            <i class="fas fa-expand me-2"></i> Mount Kilimanjaro
+                        </span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/download (4).jpg" alt="Zanzibar">
+                    <div class="gallery-overlay">
+                        <span class="gallery-caption">
+                            <i class="fas fa-expand me-2"></i> Zanzibar Beach
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <!-- Lottie Animation -->
+                <div class="lottie-container">
+                    <div id="lottie-plane"></div>
+                </div>
+                <h2 class="cta-title">Ready for Your Tanzanian Adventure?</h2>
+                <p class="cta-text">
+                    Let Tanzania captivate your soul with its breathtaking landscapes, 
+                    magnificent wildlife, and warm hospitality. Your African dream awaits!
+                </p>
+                <a href="#places" class="btn btn-explore ripple">
+                    <i class="fas fa-plane me-2"></i> Start Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-brand">
+                        <i class="fas fa-globe-africa me-2"></i>Tanzania Tourism
+                    </h3>
+                    <p class="footer-description">
+                        Discover the magic of Tanzania - from the vast Serengeti plains 
+                        to the pristine beaches of Zanzibar. Experience Africa's ultimate 
+                        safari destination.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#places"><i class="fas fa-chevron-right"></i> Places to Visit</a></li>
+                        <li><a href="#history"><i class="fas fa-chevron-right"></i> History</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Top Destinations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Serengeti</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Kilimanjaro</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Zanzibar</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ngorongoro</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@tanzaniatourism.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +255 123 456 789</a></li>
+                        <li><a href="#"><i class="fas fa-location-dot"></i> Dar es Salaam, Tanzania</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tanzania Tourism. All Rights Reserved. | Designed with <i class="fas fa-heart text-danger"></i> for Africa</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelector('.preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu
+                const navCollapse = document.querySelector('.navbar-collapse');
+                if (navCollapse.classList.contains('show')) {
+                    navCollapse.classList.remove('show');
+                }
+            });
+        });
+
+        // Counter animation for stats
+        const counters = document.querySelectorAll('.stat-number');
+        let counted = false;
+
+        function startCounting() {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current) + (counter.textContent.includes('+') ? '+' : '');
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (counter.getAttribute('data-count').includes('+') ? '+' : '');
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for counter animation
+        const statsSection = document.querySelector('.stats-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    counted = true;
+                    startCounting();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Lottie Animation
+        const lottieContainer = document.getElementById('lottie-plane');
+        if (lottieContainer) {
+            lottie.loadAnimation({
+                container: lottieContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://assets5.lottiefiles.com/packages/lf20_uwR49r.json'
+            });
+        }
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('#home');
+            const scrolled = window.scrollY;
+            hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+        });
+
+        // Image lazy loading with fade effect
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        });
+
+        // Navbar collapse on mobile link click
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.ripple').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.cssText = `
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    width: 100px;
+                    height: 100px;
+                    left: ${x - 50}px;
+                    top: ${y - 50}px;
+                    animation: rippleEffect 0.6s ease-out;
+                `;
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add CSS for ripple animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rippleEffect {
+                0% { transform: scale(0); opacity: 1; }
+                100% { transform: scale(4); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

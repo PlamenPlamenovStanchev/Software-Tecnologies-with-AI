@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassWorthy - Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">PassWorthy</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="password-test.html">Password Test</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero-section">
+            <h1>Generate Strong Passwords</h1>
+            <p class="subtitle">Create secure, random passwords to protect your accounts</p>
+        </div>
+
+        <div class="generator-card">
+            <div class="password-display">
+                <input type="text" id="passwordOutput" readonly placeholder="Your password will appear here">
+                <button id="copyBtn" class="copy-btn" title="Copy to clipboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="passwordLength">Password Length: <span id="lengthValue">12</span></label>
+                    <input type="range" id="passwordLength" min="6" max="32" value="12">
+                </div>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="includeUppercase" checked>
+                        <span>Uppercase Letters (A-Z)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="includeLowercase" checked>
+                        <span>Lowercase Letters (a-z)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="includeNumbers" checked>
+                        <span>Numbers (0-9)</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="includeSymbols" checked>
+                        <span>Symbols (!@#$%^&*)</span>
+                    </label>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="generate-btn">Generate Password</button>
+        </div>
+
+        <div class="recent-passwords">
+            <h3>Recent Passwords</h3>
+            <ul id="recentList">
+                <li class="empty-state">No passwords generated yet</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 PassWorthy. Keep your passwords secure.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
