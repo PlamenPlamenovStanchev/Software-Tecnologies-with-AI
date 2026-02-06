@@ -1,0 +1,39 @@
+# Supabase configuration file
+# https://supabase.com/docs/guides/local-development/cli/config
+
+[project]
+project_id = "your-project-id"
+region = "us-east-1"
+
+# Database settings
+[db]
+port = 5432
+major_version = 15
+# dialect = "postgresql"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 54321
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+enable_signup = true
+
+[storage]
+enabled = true
+file_size_limit = 52428800
+s3_host = "http://localhost:54321"
+s3_region = "local"
+s3_access_key = "625729a08b95740f4e8c9734ec3a467a"
+s3_secret_key = "850181e4652dd1c6ff3e25993edf60cb3b6ea48aa7e696ee201cacebe167a4ca"
+s3_bucket = "stub"
+
+[realtime]
+enabled = true
+max_bytes_per_second = 1000000

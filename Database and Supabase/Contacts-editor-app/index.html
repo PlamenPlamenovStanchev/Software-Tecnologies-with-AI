@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📇 Contact Book</h1>
+            <button class="btn btn-primary" id="addContactBtn">+ Add Contact</button>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Search by name, phone, or email..."
+            >
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+            <span class="spinner"></span>
+            Loading...
+        </div>
+
+        <!-- Contacts List -->
+        <div id="contactsList" class="contacts-list">
+            <!-- Contacts will be populated here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <p>No contacts yet. Create one to get started!</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+    </div>
+
+    <!-- Add/Edit Contact Dialog -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Contact</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Name *</label>
+                    <input 
+                        type="text" 
+                        id="contactName" 
+                        class="form-input" 
+                        placeholder="Enter contact name" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contactPhone">Phone *</label>
+                    <input 
+                        type="tel" 
+                        id="contactPhone" 
+                        class="form-input" 
+                        placeholder="Enter phone number" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Email *</label>
+                    <input 
+                        type="email" 
+                        id="contactEmail" 
+                        class="form-input" 
+                        placeholder="Enter email address" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contactTown">Town</label>
+                    <input 
+                        type="text" 
+                        id="contactTown" 
+                        class="form-input" 
+                        placeholder="Enter town/city"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="contactComments">Comments</label>
+                    <textarea 
+                        id="contactComments" 
+                        class="form-input form-textarea" 
+                        placeholder="Add any notes or comments" 
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Contact</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Dialog -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content modal-content-small">
+            <div class="modal-header">
+                <h2>Delete Contact?</h2>
+                <button class="modal-close" id="closeDeleteBtn">&times;</button>
+            </div>
+            <p id="deleteMessage" class="delete-message"></p>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Contact Details Dialog -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Contact Details</h2>
+                <button class="modal-close" id="closeViewBtn">&times;</button>
+            </div>
+            <div id="contactDetails" class="contact-details">
+                <!-- Contact details will be populated here -->
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" id="editFromViewBtn">Edit</button>
+                <button type="button" class="btn btn-danger" id="deleteFromViewBtn">Delete</button>
+                <button type="button" class="btn btn-secondary" id="closeViewModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
