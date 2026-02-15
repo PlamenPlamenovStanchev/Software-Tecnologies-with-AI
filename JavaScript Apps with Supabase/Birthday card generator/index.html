@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Generator</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-birthday-cake me-2"></i><strong>Birthday Card Generator</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="adminBtnContainer" style="display: none;">
+                        <a class="nav-link" href="admin.html">
+                            <i class="fas fa-shield-alt me-2"></i><span class="badge bg-danger">Admin</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="logoutBtn" href="#" style="display: none;">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Screen -->
+    <div id="homeScreen" class="screen-container">
+        <!-- Animated Background -->
+        <div id="animatedBg" class="animated-background"></div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="container text-center">
+                <h1 class="display-2 fw-bold mb-4 hero-title">
+                    <span class="text-gradient">Birthday Card Generator</span>
+                </h1>
+                <p class="lead mb-5 hero-subtitle">
+                    Create beautiful, personalized birthday cards in seconds
+                </p>
+                <button class="btn btn-primary btn-lg hero-btn" id="loginBtn">
+                    <i class="fas fa-magic me-2"></i>Login to Create a Birthday Card
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generate Card Screen -->
+    <div id="generateScreen" class="screen-container" style="display: none;">
+        <div class="container-fluid mt-5 pt-5">
+            <div class="row g-0" style="height: calc(100vh - 100px);">
+                <!-- Left Sidebar: Card Browser -->
+                <div class="col-lg-3 col-md-4 border-end bg-light card-browser-sidebar">
+                    <div class="p-3 border-bottom bg-white sticky-top">
+                        <h5 class="mb-0">
+                            <i class="fas fa-history me-2"></i>Your Cards
+                        </h5>
+                    </div>
+                    <div id="cardsList" class="cards-list-container" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                        <div class="text-center p-4 text-muted">
+                            <p><i class="fas fa-inbox me-2"></i>No cards yet</p>
+                            <small>Create your first card to see it here</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Wizard -->
+                <div class="col-lg-9 col-md-8 p-4">
+                    <h2 class="mb-4">
+                        <i class="fas fa-wand-magic-sparkles me-2"></i>Generate Birthday Card
+                    </h2>
+
+                    <!-- Card Generation Wizard -->
+                    <div class="card shadow-lg card-wizard">
+                        <div class="card-header bg-gradient border-0">
+                            <!-- Wizard Steps -->
+                            <ul class="nav nav-tabs nav-justified" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active wizard-step" id="step1Tab" data-step="1" data-bs-toggle="tab" data-bs-target="#step1Content" type="button" role="tab">
+                                        <span class="step-number">1</span>
+                                        <span class="step-name">Birthday Person</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link wizard-step" id="step2Tab" data-step="2" data-bs-toggle="tab" data-bs-target="#step2Content" type="button" role="tab">
+                                        <span class="step-number">2</span>
+                                        <span class="step-name">Greeting Text</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link wizard-step" id="step3Tab" data-step="3" data-bs-toggle="tab" data-bs-target="#step3Content" type="button" role="tab">
+                                        <span class="step-number">3</span>
+                                        <span class="step-name">Card Design</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link wizard-step" id="step4Tab" data-step="4" data-bs-toggle="tab" data-bs-target="#step4Content" type="button" role="tab">
+                                        <span class="step-number">4</span>
+                                        <span class="step-name">Preview</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body p-5">
+                            <div class="tab-content">
+                                <!-- Step 1: Birthday Person Name -->
+                                <div class="tab-pane fade show active" id="step1Content" role="tabpanel">
+                                    <h5 class="mb-4">Who's birthday is it?</h5>
+                                    <div class="mb-3">
+                                        <label for="birthdayName" class="form-label fw-bold">Birthday Person's Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="birthdayName" placeholder="Enter name (e.g., John)" required>
+                                    </div>
+                                    <div id="step1Error" class="alert alert-danger d-none" role="alert"></div>
+                                </div>
+
+                                <!-- Step 2: Greeting Text -->
+                                <div class="tab-pane fade" id="step2Content" role="tabpanel">
+                                    <h5 class="mb-4">Customize Greeting Text</h5>
+                                    <div class="mb-3">
+                                        <label for="greetingText" class="form-label fw-bold">Greeting Message</label>
+                                        <textarea class="form-control form-control-lg" id="greetingText" rows="4" placeholder="Enter your greeting text..." required></textarea>
+                                        <small class="text-muted d-block mt-2">Available variable: {name}</small>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-secondary" id="resetGreetingBtn">
+                                        <i class="fas fa-redo me-2"></i>Reset to Default
+                                    </button>
+                                </div>
+
+                                <!-- Step 3: Card Design -->
+                                <div class="tab-pane fade" id="step3Content" role="tabpanel">
+                                    <h5 class="mb-4">Choose Card Design</h5>
+                                    <div class="row g-3" id="cardTemplatesContainer">
+                                        <!-- Card templates will be loaded here -->
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Preview -->
+                                <div class="tab-pane fade" id="step4Content" role="tabpanel">
+                                    <h5 class="mb-4">Preview Your Card</h5>
+                                    <div class="card-preview-container mb-4">
+                                        <div id="animatedBgPreview" class="animated-background-preview"></div>
+                                        <div class="card-image-preview">
+                                            <img id="previewCardImage" src="" alt="Card template" class="img-fluid">
+                                            <div class="card-text-overlay">
+                                                <p id="previewCardText" class="greeting-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="button" class="btn btn-success btn-lg" id="downloadCardBtn">
+                                            <i class="fas fa-download me-2"></i>Download Card
+                                        </button>
+                                        <button type="button" class="btn btn-info btn-lg" id="shareCardBtn" style="display: none;">
+                                            <i class="fas fa-share-alt me-2"></i>Share Card
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-lg" id="saveCardBtn">
+                                            <i class="fas fa-save me-2"></i>Save Card
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-lg" id="deleteCardBtn" style="display: none;">
+                                            <i class="fas fa-trash-alt me-2"></i>Delete Card
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wizard Navigation Buttons -->
+                        <div class="card-footer bg-light border-top">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-secondary btn-lg w-100" id="prevBtn" style="display: none;">
+                                        <i class="fas fa-arrow-left me-2"></i>Previous
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-primary btn-lg w-100" id="nextBtn">
+                                        <i class="fas fa-arrow-right me-2"></i>Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal with Tabs -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-gradient border-0">
+                    <h5 class="modal-title" id="authModalLabel">
+                        <i class="fas fa-lock me-2"></i>Welcome to Birthday Card Generator
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs nav-fill" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-bold" id="loginTab" data-bs-toggle="tab" data-bs-target="#loginContent" type="button" role="tab">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-bold" id="registerTab" data-bs-toggle="tab" data-bs-target="#registerContent" type="button" role="tab">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content p-4">
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="loginContent" role="tabpanel">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label fw-bold">Email Address</label>
+                                    <input type="email" class="form-control form-control-lg" id="loginEmail" placeholder="your@email.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label fw-bold">Password</label>
+                                    <input type="password" class="form-control form-control-lg" id="loginPassword" placeholder="••••••••" required>
+                                </div>
+                                <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-arrow-right me-2"></i>Login
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Register Form -->
+                        <div class="tab-pane fade" id="registerContent" role="tabpanel">
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label fw-bold">Email Address</label>
+                                    <input type="email" class="form-control form-control-lg" id="registerEmail" placeholder="your@email.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label fw-bold">Password</label>
+                                    <input type="password" class="form-control form-control-lg" id="registerPassword" placeholder="••••••••" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerConfirmPassword" class="form-label fw-bold">Confirm Password</label>
+                                    <input type="password" class="form-control form-control-lg" id="registerConfirmPassword" placeholder="••••••••" required>
+                                </div>
+                                <div id="registerError" class="alert alert-danger d-none" role="alert"></div>
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="fas fa-user-check me-2"></i>Create Account
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Card Modal -->
+    <div class="modal fade" id="shareCardModal" tabindex="-1" aria-labelledby="shareCardModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-gradient border-0">
+                    <h5 class="modal-title" id="shareCardModalLabel">
+                        <i class="fas fa-share-alt me-2"></i>Share This Card
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted mb-3">Share this card with anyone using this link:</p>
+                    
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="shareCardUrl" readonly placeholder="Share URL">
+                        <button class="btn btn-primary" type="button" id="copyToClipboardBtn">
+                            <i class="fas fa-copy me-2"></i>Copy
+                        </button>
+                    </div>
+
+                    <p class="text-muted small mb-3">Sharing Code: <code id="sharingCodeDisplay">-</code></p>
+
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-success" id="mobileShareBtn" style="display: none;">
+                            <i class="fas fa-share-nodes me-2"></i>Share via...
+                        </button>
+                    </div>
+
+                    <p class="text-muted text-center small mt-3 mb-0">
+                        <i class="fas fa-info-circle me-1"></i>Anyone with this link can view your card
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="d-flex justify-content-center align-items-center" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 9999;">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Initialize Supabase immediately after library loads -->
+    <script>
+        // Initialize Supabase client globally
+        const SUPABASE_URL = 'https://ozakofbkmeibnyohyoar.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96YWtvZmJrbWVpYm55b2h5b2FyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2MTAwNDAsImV4cCI6MjA1NTE4NjA0MH0.1Jz-7cLqxB5P_V6nQk1b7Ys5xVBfb2rQ2j3mKLp0qCQ';
+        const { createClient } = window.supabase;
+        var supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    </script>
+    
+    <!-- Config -->
+    <script src="config.js"></script>
+    
+    <!-- Auth -->
+    <script src="auth.js"></script>
+    
+    <!-- User Roles -->
+    <script src="user-roles.js"></script>
+
+    <!-- Card Templates -->
+    <script src="templates.js"></script>
+    
+    <!-- Card Generator -->
+    <script src="card-generator.js"></script>
+    
+    <!-- App -->
+    <script src="app.js"></script>
+
+    <!-- html2canvas for card download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
